@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "minchouu": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "minchouu"
+    }
+  },
+  "defaultProject": "minchouu",
+  "cli": {
+    "analytics": "7b39b180-131c-4e4e-b7cb-1f3f9f1355d3"
+  }
 }

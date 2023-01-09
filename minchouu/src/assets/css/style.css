@@ -6,8 +6,8 @@
 	  Support:
 	  Description:
 	  Version:
-	  
-------------------------------------------------- 
+
+-------------------------------------------------
 */
 /* CSS Index
 -------------------------------------------------
@@ -232,12 +232,12 @@ p {
 
 /* line 41, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
 .bg-img-2 {
-  background-image: url(../img/background-img/bg-img-2.jpg);
+  background-image: url('../img/background-img/bg-img-2.jpg');
 }
 
 /* line 44, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
 .cta-bg-1 {
-  background-image: url(../img/background-img/bg-img-3.jpg);
+  background-image: url('../img/background-img/bg-img-3.jpg');
 }
 
 /* line 49, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
@@ -2441,7 +2441,7 @@ input:focus::-moz-placeholder {
 /* line 601, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
 .preloader .preloader-circle {
   width: 100px;
-  height: 100px;
+  height: 70px;
   position: relative;
   border-style: solid;
   border-width: 3px;
@@ -3886,7 +3886,7 @@ input:focus {
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   /* line 2, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_h1-hero.scss */
   .slider-height {
-    min-height: 700px;
+    min-height: 740px;
   }
 }
 
