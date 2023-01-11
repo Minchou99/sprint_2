@@ -2,43 +2,43 @@
   <!-- Header Start -->
   <div class="header-area">
     <div class="main-header ">
-<!--      <div class="header-top top-bg d-none d-lg-block">-->
-<!--        <div class="container-fluid">-->
-<!--          <div class="col-xl-12">-->
-<!--            <div class="row d-flex justify-content-between align-items-center">-->
-<!--              <div class="header-info-left d-flex">-->
-<!--                <div class="flag">-->
-<!--                  <img src="assets/img/icon/header_icon.png" alt="">-->
-<!--                </div>-->
-<!--&lt;!&ndash;                <div class="select-this">&ndash;&gt;-->
-<!--&lt;!&ndash;                  <form action="#">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="select-itms">&ndash;&gt;-->
-<!--&lt;!&ndash;                      <select name="select" id="select1">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <option value="">USA</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <option value="">SPN</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <option value="">CDA</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <option value="">USD</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                      </select>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                  </form>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--                <ul class="contact-now">-->
-<!--                  <li>090 121 121 121</li>-->
-<!--                </ul>-->
-<!--              </div>-->
-<!--              <div class="header-info-right">-->
-<!--                <ul>-->
-<!--                  <li><a href="#">My Account </a></li>-->
-<!--                  <li><a href="#">Wish List  </a></li>-->
-<!--                  <li><a href="#">Shopping</a></li>-->
-<!--                  <li><a href="#">Cart</a></li>-->
-<!--                  <li><a href="#">Checkout</a></li>-->
-<!--                </ul>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+      <!--      <div class="header-top top-bg d-none d-lg-block">-->
+      <!--        <div class="container-fluid">-->
+      <!--          <div class="col-xl-12">-->
+      <!--            <div class="row d-flex justify-content-between align-items-center">-->
+      <!--              <div class="header-info-left d-flex">-->
+      <!--                <div class="flag">-->
+      <!--                  <img src="assets/img/icon/header_icon.png" alt="">-->
+      <!--                </div>-->
+      <!--&lt;!&ndash;                <div class="select-this">&ndash;&gt;-->
+      <!--&lt;!&ndash;                  <form action="#">&ndash;&gt;-->
+      <!--&lt;!&ndash;                    <div class="select-itms">&ndash;&gt;-->
+      <!--&lt;!&ndash;                      <select name="select" id="select1">&ndash;&gt;-->
+      <!--&lt;!&ndash;                        <option value="">USA</option>&ndash;&gt;-->
+      <!--&lt;!&ndash;                        <option value="">SPN</option>&ndash;&gt;-->
+      <!--&lt;!&ndash;                        <option value="">CDA</option>&ndash;&gt;-->
+      <!--&lt;!&ndash;                        <option value="">USD</option>&ndash;&gt;-->
+      <!--&lt;!&ndash;                      </select>&ndash;&gt;-->
+      <!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+      <!--&lt;!&ndash;                  </form>&ndash;&gt;-->
+      <!--&lt;!&ndash;                </div>&ndash;&gt;-->
+      <!--                <ul class="contact-now">-->
+      <!--                  <li>090 121 121 121</li>-->
+      <!--                </ul>-->
+      <!--              </div>-->
+      <!--              <div class="header-info-right">-->
+      <!--                <ul>-->
+      <!--                  <li><a href="#">My Account </a></li>-->
+      <!--                  <li><a href="#">Wish List  </a></li>-->
+      <!--                  <li><a href="#">Shopping</a></li>-->
+      <!--                  <li><a href="#">Cart</a></li>-->
+      <!--                  <li><a href="#">Checkout</a></li>-->
+      <!--                </ul>-->
+      <!--              </div>-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
       <div class="header-bottom  header-sticky">
         <div class="container-fluid">
           <div class="row align-items-center">
@@ -54,11 +54,11 @@
                 <nav>
                   <ul id="navigation">
                     <li><a href="#">Home</a></li>
-                    <li><a routerLink="/categori" >Catagori</a></li>
+                    <li><a routerLink="/categori">Catagori</a></li>
                     <li class="hot"><a href="#">Latest</a>
                       <ul class="submenu">
-                        <li><a routerLink="/productList" > Product list</a></li>
-                        <li><a href="#"> Product Details</a></li>
+                        <li *ngIf="checkLogin && accountRole == 'ROLE_ADMIN'"><a routerLink="/productList"> Product list</a></li>
+                        <li *ngIf="checkLogin && accountRole == 'ROLE_ADMIN'"><a href="#"> Product Details</a></li>
                       </ul>
                     </li>
                     <li><a href="#">Blog</a>
@@ -69,7 +69,8 @@
                     </li>
                     <li><a href="#">Pages</a>
                       <ul class="submenu">
-                        <li><a routerLink="/login">Login</a></li>
+                        <li *ngIf="!checkLogin"><a routerLink="/login">Login</a></li>
+                        <li *ngIf="checkLogin"><a (click)="logOut()">Log Out</a></li>
                         <li><a href="#">Card</a></li>
                         <li><a href="#">Element</a></li>
                         <li><a href="#">About</a></li>
@@ -100,10 +101,16 @@
                 </li>
                 <li>
                   <div class="shopping-card">
-                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                    <a *ngIf="!checkLogin" routerLink="login"><i class="fas fa-shopping-cart"></i></a>
+                    <a *ngIf="checkLogin" routerLink="cart"><i class="fas fa-shopping-cart"></i></a>
                   </div>
+
                 </li>
-                <li class="d-none d-lg-block"> <a href="#" class="btn header-btn">Sign in</a></li>
+                <li *ngIf="nameAccount!= ''">{{nameAccount}}</li>
+                <li  class="d-none d-lg-block" *ngIf="!checkLogin"><a routerLink="login" class="btn header-btn">Sign
+                  in</a></li>
+                <li class="d-none d-lg-block" *ngIf="checkLogin"><a (click)="logOut()" class="btn header-btn">Log
+                  Out</a></li>
               </ul>
             </div>
             <!-- Mobile Menu -->

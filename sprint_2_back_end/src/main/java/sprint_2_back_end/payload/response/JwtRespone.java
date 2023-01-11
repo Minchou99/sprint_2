@@ -2,6 +2,7 @@ package sprint_2_back_end.payload.response;
 
 import org.springframework.security.core.GrantedAuthority;
 import sprint_2_back_end.model.account.Account;
+import sprint_2_back_end.model.user.User;
 
 import java.util.Collection;
 
@@ -9,6 +10,7 @@ public class JwtRespone {
     private String token;
     private String type = "Bearer";
     private Account account;
+    private User user;
     private Collection<? extends GrantedAuthority> roles;
 
     public JwtRespone() {
@@ -18,6 +20,22 @@ public class JwtRespone {
         this.token = token;
         this.roles = authorities;
         this.account = account;
+    }
+
+    public JwtRespone(String token, Collection<? extends GrantedAuthority> authorities, Account account, User user) {
+        this.token = token;
+        this.roles = authorities;
+        this.account = account;
+        this.user = user;
+    }
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getToken() {

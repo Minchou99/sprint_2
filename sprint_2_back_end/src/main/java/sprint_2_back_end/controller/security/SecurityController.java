@@ -48,7 +48,7 @@ public class SecurityController {
         MyUserDetail myUserDetail = (MyUserDetail) authentication.getPrincipal();
 
         JwtRespone respone = new JwtRespone(token, myUserDetail.getAuthorities(),
-                myUserDetail.getAccount());
+                myUserDetail.getAccount(),myUserDetail.getAccount().getUser());
 
         return ResponseEntity.ok(respone);
     }
