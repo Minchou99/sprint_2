@@ -1,21 +1,30 @@
-package sprint_2_back_end.model.product;
+package sprint_2_back_end.model.payment;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import sprint_2_back_end.model.product.Product;
 
 import javax.persistence.*;
 
 @Entity
-public class Image {
+public class PaymentDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String imageName;
+    private Integer quantity;
     @Column(columnDefinition = "boolean default false")
     private String isDelete;
 
     @ManyToOne
+    @JoinColumn(name = "payment_id", referencedColumnName = "id")
+    @JsonManagedReference
+    private Payment payment;
+
+    @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
+    @JsonManagedReference
     private Product product;
 
-    public Image() {
+    public PaymentDetail() {
     }
 
     public Integer getId() {
@@ -26,12 +35,12 @@ public class Image {
         this.id = id;
     }
 
-    public String getImageName() {
-        return imageName;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public String getIsDelete() {
@@ -40,6 +49,14 @@ public class Image {
 
     public void setIsDelete(String isDelete) {
         this.isDelete = isDelete;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
     public Product getProduct() {
