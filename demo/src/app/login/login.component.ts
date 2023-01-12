@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from "../service/authentication.service";
+import {AuthenticationService} from '../service/authentication.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,9 +8,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username = ''
-  password = ''
-  invalidLogin = false
+  username = '';
+  password = '';
+  invalidLogin = false;
 
   constructor(private router: Router,
               private loginservice: AuthenticationService) {
@@ -22,11 +22,11 @@ export class LoginComponent implements OnInit {
   checkLogin() {
     (this.loginservice.authenticate(this.username, this.password).subscribe(
         data => {
-          this.router.navigate([''])
-          this.invalidLogin = false
+          this.router.navigate(['']);
+          this.invalidLogin = false;
         },
         error => {
-          this.invalidLogin = true
+          this.invalidLogin = true;
 
         }
       )
