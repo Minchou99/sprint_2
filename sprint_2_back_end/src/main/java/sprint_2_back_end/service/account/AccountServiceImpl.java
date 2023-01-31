@@ -3,7 +3,7 @@ package sprint_2_back_end.service.account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sprint_2_back_end.model.account.Account;
-import sprint_2_back_end.repository.IAccountRepository;
+import sprint_2_back_end.repository.account.IAccountRepository;
 
 import java.util.Optional;
 

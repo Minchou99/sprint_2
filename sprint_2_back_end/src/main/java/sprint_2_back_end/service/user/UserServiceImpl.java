@@ -2,7 +2,7 @@ package sprint_2_back_end.service.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import sprint_2_back_end.model.user.User;
-import sprint_2_back_end.repository.IUserRepository;
+import sprint_2_back_end.repository.account.IUserRepository;
 
 import java.util.Optional;
 

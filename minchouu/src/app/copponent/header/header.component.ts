@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
       this.currentUser = JSON.parse(this.tokenService.getUser());
       console.log('hehhe' + this.currentUser);
 
-      this.nameAccount = this.currentUser.firstName + ' ' + this.currentUser.lastName;
+      this.nameAccount = this.currentUser.lastName;
       console.log('tên' + this.nameAccount);
       const roles = this.tokenService.getRole();
 

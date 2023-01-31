@@ -13,23 +13,6 @@
           <div class="single_sedebar">
             <div class="select_option">
               <div class="select_option_list">Category <i class="right fas fa-caret-down"></i> </div>
-              <div class="select_option_dropdown">
-                <p><a href="#">Category 1</a></p>
-                <p><a href="#">Category 2</a></p>
-                <p><a href="#">Category 3</a></p>
-                <p><a href="#">Category 4</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="single_sedebar">
-            <div class="select_option">
-              <div class="select_option_list">Type <i class="right fas fa-caret-down"></i> </div>
-              <div class="select_option_dropdown">
-                <p><a href="#">Type 1</a></p>
-                <p><a href="#">Type 2</a></p>
-                <p><a href="#">Type 3</a></p>
-                <p><a href="#">Type 4</a></p>
-              </div>
             </div>
           </div>
         </div>
@@ -37,82 +20,35 @@
       <div class="col-md-8">
         <div class="product_list">
           <div class="row">
-            <div class="col-lg-6 col-sm-6">
+            <div class="col-lg-6 col-sm-6" *ngFor="let item of product">
               <div class="single_product_item">
                 <img src="assets/img/categori/product6.png" alt="" class="img-fluid">
-                <h3> <a href="single-product.html">Cervical pillow for airplane
-                  car office nap pillow</a> </h3>
-                <p>From $5</p>
+                <h3>{{item.description}}</h3>
+                <p>{{item.price|number}}<sup>đ</sup></p>
               </div>
             </div>
-            <div class="col-lg-6 col-sm-6">
-              <div class="single_product_item">
-                <img src="assets/img/categori/product2.png" alt="" class="img-fluid">
-                <h3> <a href="single-product.html">Geometric striped flower home classy decor</a> </h3>
-                <p>From $5</p>
+            <div class="col-lg-6 col-md-6 col-sm-12 pb-1">
+              <div class="card product-item border-0 mb-4">
+                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                  <img class="img-fluid w-100" src="assets/img/categori/product6.png" alt="">
+                </div>
+                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                  <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                  <div class="d-flex justify-content-center">
+                    <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                  </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between bg-light border">
+                  <a href="" class="btn btn-sm text-dark"><i class="fas fa-eye "></i>View Detail</a>
+                  <a href="" class="btn btn-sm text-dark"><i class="fas fa-shopping-cart"></i>Add To Cart</a>
+                </div>
               </div>
             </div>
-            <div class="col-lg-6 col-sm-6">
-              <div class="single_product_item">
-                <img src="assets/img/categori/product5.png" alt="" class="img-fluid">
-                <h3> <a href="single-product.html">Foam filling cotton slow rebound pillows</a> </h3>
-                <p>From $5</p>
-              </div>
-            </div>
-            <div class="col-lg-6 col-sm-6">
-              <div class="single_product_item">
-                <img src="assets/img/categori/product6.png" alt="" class="img-fluid">
-                <h3> <a href="single-product.html">Memory foam filling cotton Slow rebound pillows</a> </h3>
-                <p>From $5</p>
-              </div>
-            </div>
-            <div class="col-lg-6 col-sm-6">
-              <div class="single_product_item">
-                <img src="assets/img/categori/product1.png" alt="" class="img-fluid">
-                <h3> <a href="single-product.html">Memory foam filling cotton Slow rebound pillows</a> </h3>
-                <p>From $5</p>
-              </div>
-            </div>
-            <div class="col-lg-6 col-sm-6">
-              <div class="single_product_item">
-                <img src="assets/img/categori/product4.png" alt="" class="img-fluid">
-                <h3> <a href="single-product.html">Sleeping orthopedic sciatica Back Hip Joint Pain relief</a> </h3>
-                <p>From $5</p>
-              </div>
-            </div>
-            <div class="col-lg-6 col-sm-6">
-              <div class="single_product_item">
-                <img src="assets/img/categori/product5.png" alt="" class="img-fluid">
-                <h3> <a href="single-product.html">Memory foam filling cotton Slow rebound pillows</a> </h3>
-                <p>From $5</p>
-              </div>
-            </div>
-            <div class="col-lg-6 col-sm-6">
-              <div class="single_product_item">
-                <img src="assets/img/categori/product3.png" alt="" class="img-fluid">
-                <h3> <a href="single-product.html">Sleeping orthopedic sciatica Back Hip Joint Pain relief</a> </h3>
-                <p>From $5</p>
-              </div>
-            </div>
-            <div class="col-lg-6 col-sm-6">
-              <div class="single_product_item">
-                <img src="assets/img/categori/product2.png" alt="" class="img-fluid">
-                <h3> <a href="single-product.html">Geometric striped flower home classy decor</a> </h3>
-                <p>From $5</p>
-              </div>
-            </div>
-            <div class="col-lg-6 col-sm-6">
-              <div class="single_product_item">
-                <img src="assets/img/categori/product1.png" alt="" class="img-fluid">
-                <h3> <a href="single-product.html">Geometric striped flower home classy decor</a> </h3>
-                <p>From $5</p>
-              </div>
-            </div>
+
           </div>
-          <div class="load_more_btn text-center">
-            <a href="#" class="btn_3">Load More</a>
-          </div>
+
         </div>
+
       </div>
     </div>
   </div>

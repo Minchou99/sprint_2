@@ -1,4 +1,4 @@
-package sprint_2_back_end.repository;
+package sprint_2_back_end.repository.account;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
