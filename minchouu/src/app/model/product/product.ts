@@ -3,6 +3,7 @@ import {Image} from './image';
 
 export interface Product {
   id?: number;
+  name?: string;
   price?: number;
   startDate?: string;
   origin?: string;
@@ -10,6 +11,6 @@ export interface Product {
   size?: string;
   description?: string;
   isDelete?: string;
-  category?: Categoty;
-  images?: Image;
+  category?: string;
+  image?: string;
 }

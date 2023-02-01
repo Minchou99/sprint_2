@@ -13,11 +13,11 @@ export class ProductService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getListProduct(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(environment.API_URL_PRODUCT);
+  getListProduct(nameProduct, pageNumber: number): Observable<any> {
+    return this.httpClient.get(environment.API_URL_PRODUCT + '/search?page=' + pageNumber + '&nameProduct=' + nameProduct );
   }
 
   getListCategory(): Observable<Categoty[]> {
-    return this.httpClient.get<Categoty[]>(environment.API_URL_CATEGORY);
+    return this.httpClient.get<Categoty[]>(environment.API_URL_PRODUCT + 'category' );
   }
 }
