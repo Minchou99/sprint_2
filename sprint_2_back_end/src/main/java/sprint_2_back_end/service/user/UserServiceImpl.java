@@ -1,11 +1,13 @@
 package sprint_2_back_end.service.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import sprint_2_back_end.model.user.User;
 import sprint_2_back_end.repository.account.IUserRepository;
 
 import java.util.Optional;
 
+@Service
 public class UserServiceImpl implements IUserService {
     @Autowired
     private IUserRepository userRepository;
@@ -33,6 +35,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public User getUserByEmail(String email) {
         return userRepository.getUserByEmail(email);
+    }
+
+    @Override
+    public User getUser(String userId) {
+        return userRepository.getUser(userId);
     }
 
 }

@@ -1,0 +1,16 @@
+.form-box {
+}
+
+.form-box__input {
+  outline: none;
+  border-radius: 3px;
+  padding: 6px 9px;
+}
+
+.btn + .btn {
+  margin-left: 9px;
+}
+
+.btn.adding {
+  color: white;
+}

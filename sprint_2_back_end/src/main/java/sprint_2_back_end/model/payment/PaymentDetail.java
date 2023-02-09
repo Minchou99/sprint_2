@@ -13,11 +13,16 @@ public class PaymentDetail {
     private Integer quantity;
     @Column(columnDefinition = "boolean default false")
     private String isDelete;
+    @Column(columnDefinition = "text")
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "payment_id", referencedColumnName = "id")
     @JsonManagedReference
     private Payment payment;
+    @Column(columnDefinition = "boolean default false")
+    private String isPayment;
+    private String paymentDate;
 
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
@@ -25,6 +30,30 @@ public class PaymentDetail {
     private Product product;
 
     public PaymentDetail() {
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getIsPayment() {
+        return isPayment;
+    }
+
+    public void setIsPayment(String isPayment) {
+        this.isPayment = isPayment;
+    }
+
+    public String getPaymentDate() {
+        return paymentDate;
+    }
+
+    public void setPaymentDate(String paymentDate) {
+        this.paymentDate = paymentDate;
     }
 
     public Integer getId() {

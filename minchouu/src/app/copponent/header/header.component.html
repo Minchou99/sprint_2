@@ -8,32 +8,22 @@
             <!-- Logo -->
             <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3 d-none d-lg-block">
               <div class="logo">
-                <a href="#"><img src="assets/img/logo/logoo.png" alt=""></a>
+                <a href="#"><img class="logo__img"  src="assets/img/logo/logoo.png" alt=""></a>
               </div>
             </div>
             <div class="col-xl-5 col-lg-8 col-md-7 col-sm-5">
               <!-- Main-menu -->
               <div class="main-menu f-right justify-content-between  d-none d-lg-block">
                 <nav>
-                  <ul id="navigation">
-                    <li><a href="#">Home</a></li>
-                    <li class="hot"><a href="#">Product</a>
+                  <ul class="top-navbar" id="navigation">
+                    <li><a href="#" style="font-size: 18px">Home</a></li>
+                    <li  class="hot"><a href="#"  style="font-size: 18px" >Product</a>
                       <ul class="submenu">
-                        <li *ngIf="checkLogin && accountRole == 'ROLE_ADMIN'"><a routerLink="/productList"> Product list</a></li>
-                        <li *ngIf="checkLogin && accountRole == 'ROLE_ADMIN'"><a href="#"> Product Details</a></li>
+                        <li *ngIf="checkLogin "><a routerLink="/productList"> Product list</a></li>
+                        <li *ngIf="checkLogin && accountRole == 'ROLE_ADMIN'"><a routerLink="/cart" > Cart</a></li>
                       </ul>
                     </li>
-                    <li><a href="#">Pages</a>
-                      <ul class="submenu">
-                        <li *ngIf="!checkLogin"><a routerLink="/login">Login</a></li>
-                        <li *ngIf="checkLogin"><a (click)="logOut()">Log Out</a></li>
-                        <li><a href="#">Card</a></li>
-                        <li><a href="#">Element</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Confirmation</a></li>
-                        <li><a href="#">Shopping Cart</a></li>
-                        <li><a href="#">Product Checkout</a></li>
-                      </ul>
+                    <li><a href="#" style="font-size: 20px !important;">History </a>
                     </li>
                   </ul>
                 </nav>
@@ -42,17 +32,23 @@
             <div  class="col-xl-6 col-lg-3 col-md-3 col-sm-3 fix-card">
               <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
                 <li>
-                  <div class="shopping-card">
-                    <a *ngIf="!checkLogin" routerLink="login"><i class="fas fa-shopping-cart"></i></a>
-                    <a *ngIf="checkLogin" routerLink="cart"><i class="fas fa-shopping-cart"></i></a>
+                  <div *ngIf="checkLogin" class="shopping-card">
+<!--                    <a *ngIf="!checkLogin" routerLink="login"><i class="fas fa-shopping-cart"></i><sup>02</sup></a>-->
+                    <a *ngIf="checkLogin " style="font-size: 20px !important;" routerLink="cart"><i class="fas fa-shopping-cart"></i></a>
                   </div>
-
                 </li>
-                <li style="margin-top: 13px" *ngIf="nameAccount!= ''">{{nameAccount}}</li>
+                <li class="user-information-header" style="margin-top: 13px" *ngIf="nameAccount!= ''">
+                  {{nameAccount}}
+                  <div class="user-information-header__detail">
+                    <ul class="user-information-header__detail-group">
+                      <li class="detail-group__item"><a >My account</a></li>
+                      <li class="detail-group__item"><a >History order</a></li>
+                      <li *ngIf="checkLogin"  class="detail-group__item"><a (click)="logOut()">Logout</a></li>
+                    </ul>
+                  </div>
+                </li>
                 <li  class="d-none d-lg-block" *ngIf="!checkLogin"><a routerLink="login" class="btn header-btn">Sign
                   in</a></li>
-                <li class="d-none d-lg-block" *ngIf="checkLogin"><a (click)="logOut()" class="btn header-btn">Log
-                  Out</a></li>
               </ul>
             </div>
             <!-- Mobile Menu -->

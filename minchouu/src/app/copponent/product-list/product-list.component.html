@@ -9,7 +9,9 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
               <div class="form-box f-right ">
-                <input type="text" name="Search" placeholder="Search products" [(ngModel)]="nameSearch"> <a class="btn-sm" (click)="search()"><i class="fas fa-search special-tag"></i></a>
+                <input (change)="search()" class="form-box__input" type="text" name="Search" placeholder="Search products" [(ngModel)]="nameSearch">
+                <span>  <i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="submit" hidden>
               </div>
             </div>
             <div class="col-lg-4">
@@ -25,21 +27,59 @@
                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                   <h6 class="text-truncate mb-3">{{item.name}}</h6>
                   <div class="d-flex justify-content-center">
-                    <h6>{{item.price|number}}<sup>đ</sup></h6><h6 class="text-muted ml-2"><del>{{item.price*1.5 |number}}<sup>đ</sup></del></h6>
+                    <h6>{{item.price|number}}<sup>đ</sup></h6>
+                    <h6 class="text-muted ml-2">
+                      <del>{{item.price * 1.5 |number}}<sup>đ</sup></del>
+                    </h6>
                   </div>
                 </div>
-                <div class="card-footer d-flex justify-content-between ">
-                  <a style="margin-left: 10px"><i class="fas fa-eye "> </i> View Detail</a>
-                  <a style="margin-right: 10px"><i class="fas fa-shopping-cart"> </i> Shopping Cart</a>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                  <a [routerLink]="['/product-detail',item.id]" class="btn btn-sm" style=" padding: 10px !important;"><i class="fas fa-eye "> </i>
+                    View Detail</a>
+                  <a class="btn btn-sm adding" (click)="addToCart(item.id)"
+                     style=" padding: 10px !important;"><i class="fas fa-shopping-cart"></i> Add To
+                    Cart </a>
                 </div>
               </div>
             </div>
-
           </div>
-
+          <div class="row">
+            <div class="main-menu f-right justify-content-between w-100  d-none d-lg-block">
+              <nav aria-label="Page navigation example" class="d-flex justify-content-end">
+                <ul class="my__pagination d-flex" *ngIf="pageProduct">
+                  <li class="my__page-item pointer" [ngClass]="pageProduct.number == 0 ? 'disabled': ''">
+              <span class="page-link" (click)="goToPage(0)">
+                Trang Đầu
+              </span>
+                  </li>
+                  <li class="my__page-item pointer" [ngClass]="pageProduct.number == 0 ? 'disabled': ''">
+              <span class="page-link" (click)="goToPage(pageProduct.number - 1)">
+                Trước
+              </span>
+                  </li>
+                  <li class="my__page-item pointer d-flex justify-content-center align-items-center">
+                    <span>{{(pageProduct.pageable.pageNumber) + 1}}/{{pageProduct.totalPages}}</span>
+                  </li>
+                  <li class="my__page-item pointer"
+                      [ngClass]="pageProduct.number + 1 == pageProduct.totalPages ? 'disabled': ''">
+              <span class="page-link" (click)="goToPage(pageProduct.number + 1)">
+                Sau
+              </span>
+                  </li>
+                  <li class="my__page-item pointer"
+                      [ngClass]="pageProduct.number + 1 == pageProduct.totalPages ? 'disabled': ''">
+              <span class="page-link" (click)="goToPage(pageProduct.totalPages -1)">
+                Trang Cuối
+              </span>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
         </div>
 
       </div>
+
     </div>
   </div>
 </section>

@@ -9,11 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sprint_2_back_end.model.product.Category;
 import sprint_2_back_end.model.product.Product;
-import sprint_2_back_end.repository.IProductDTO;
+import sprint_2_back_end.dto.IProductDTO;
 import sprint_2_back_end.service.product.ICategoryService;
 import sprint_2_back_end.service.product.IProductService;
 
-import java.util.ArrayList;
 import java.util.List;
 @CrossOrigin("*")
 @RestController
@@ -53,7 +52,13 @@ public class ProductRestController {
         return new ResponseEntity<>(productDTO,HttpStatus.OK);
     }
 
-
-
+    @GetMapping("find-by-id")
+    public ResponseEntity<IProductDTO> getProductById(@RequestParam String id){
+        IProductDTO productDTO = productService.getProductById(id);
+        if(productDTO == null){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(productDTO,HttpStatus.OK);
+    }
 
 }

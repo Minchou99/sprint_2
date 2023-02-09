@@ -1,4 +1,4 @@
-package sprint_2_back_end.repository;
+package sprint_2_back_end.dto;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import sprint_2_back_end.model.product.Product;

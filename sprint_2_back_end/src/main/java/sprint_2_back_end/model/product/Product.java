@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Product {
@@ -119,5 +120,18 @@ public class Product {
 
     public void setImages(List<Image> images) {
         this.images = images;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Objects.equals(id, product.id) && Objects.equals(name, product.name) && Objects.equals(price, product.price) && Objects.equals(startDate, product.startDate) && Objects.equals(origin, product.origin) && Objects.equals(color, product.color) && Objects.equals(size, product.size) && Objects.equals(description, product.description) && Objects.equals(isDelete, product.isDelete) && Objects.equals(category, product.category) && Objects.equals(images, product.images);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, price, startDate, origin, color, size, description, isDelete, category, images);
     }
 }

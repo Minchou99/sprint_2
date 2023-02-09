@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import sprint_2_back_end.model.product.Product;
-import sprint_2_back_end.repository.IProductDTO;
+import sprint_2_back_end.dto.IProductDTO;
 import sprint_2_back_end.repository.product.IProductRepository;
 
 import java.util.List;
@@ -22,6 +22,16 @@ public class ProductService implements IProductService {
     @Override
     public Page<IProductDTO> getListProductAndSearch(String name, Pageable pageable) {
         return productRepository.getListProduct(name, pageable);
+    }
+
+    @Override
+    public Product findById(Integer id) {
+        return productRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public IProductDTO getProductById(String id) {
+        return productRepository.getProductById(id);
     }
 
 

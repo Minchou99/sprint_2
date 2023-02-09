@@ -5,17 +5,17 @@
       <div class="col-lg-6 col-md-6">
         <div class="login_part_text text-center">
           <div class="login_part_text_iner">
-            <h2>Chào mừng bạn đến với shop Chouchouu</h2>
-            <p>Mua hàng hiệu không cần tiền triệu</p>
-            <a href="#" class="btn_3">Create an Account</a>
+            <h2>Welcome to Chouchou's Store</h2>
+            <p>Buy branded goods without millions</p>
+            <a routerLink="login" class="btn_3">Create an Account</a>
           </div>
         </div>
       </div>
       <div class="col-lg-6 col-md-6">
         <div class="login_part_form">
           <div class="login_part_form_iner">
-            <h3>Chào mừng bạn đến với shop của chúng tôi ! <br>
-              Mời bạn đăng nhập để mua hàng</h3>
+            <h3>Welcome to our shop! <br>
+              Please login to shopping</h3>
             <form [formGroup]="rflogin" (ngSubmit)="login()" class="row contact_form" novalidate="novalidate">
               <div class="col-md-12 form-group p_star">
                 <input type="text" formControlName="username" class="form-control" id="name" name="name" value=""
@@ -33,7 +33,6 @@
                 <button type="submit" value="submit" class="btn_3">
                   log in
                 </button>
-                <a class="lost_pass" href="#">forget password?</a>
               </div>
             </form>
           </div>

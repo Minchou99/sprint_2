@@ -1,25 +1,19 @@
 import {Component, OnInit} from '@angular/core';
-import {Categoty} from '../../model/product/categoty';
 import {Product} from '../../model/product/product';
-import {Image} from '../../model/product/image';
 import {ProductService} from '../../service/product.service';
-import {PageProduct} from '../../dto/page-product';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {PaymentDto} from '../../model/payment/payment-dto';
 import {TokeService} from '../../service/toke.service';
 import {PaymentService} from '../../service/payment.service';
-import {logger} from 'codelyzer/util/logger';
-import {PaymentDto} from '../../model/payment/payment-dto';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  selector: 'app-product-detail',
+  templateUrl: './product-detail.component.html',
+  styleUrls: ['./product-detail.component.css']
 })
-export class ProductListComponent implements OnInit {
-  category: Categoty[];
-  product: Product[];
-  image: Image;
-  pageProduct: PageProduct | undefined;
-  nameSearch = '';
+export class ProductDetailComponent implements OnInit {
+  product: Product;
+  idProduct: string;
   user: string[];
   userId: string;
   id: string[];
@@ -27,21 +21,21 @@ export class ProductListComponent implements OnInit {
   check = false;
 
   constructor(private productService: ProductService,
+              private activateRoute: ActivatedRoute,
               private tokenService: TokeService,
               private paymentService: PaymentService) {
   }
 
   ngOnInit(): void {
+    this.activateRoute.paramMap.subscribe((paramMap: ParamMap) => {
+      this.idProduct = paramMap.get('id');
+      this.productService.getProductById(this.idProduct).subscribe(data => {
+        this.product = data;
+        this.productService.showSuccessMessage('thanh cong');
+      });
+    });
     this.getUserId();
     this.getListPayment();
-    this.getListProduct();
-  }
-
-  getListProduct() {
-    this.productService.getListProduct(this.nameSearch, 0).subscribe(productList => {
-      console.log(productList);
-      this.pageProduct = productList;
-    });
   }
 
   getUserId() {
@@ -51,13 +45,6 @@ export class ProductListComponent implements OnInit {
     console.log(this.id[1]);
   }
 
-  goToPage(i: number) {
-    this.productService.getListProduct(this.nameSearch, i).subscribe(
-      data => {
-        this.pageProduct = data;
-        console.log(data);
-      });
-  }
 
   getListPayment() {
     this.paymentService.getListPayment(this.id[1]).subscribe(data => {
@@ -91,10 +78,7 @@ export class ProductListComponent implements OnInit {
         }
       }
     });
-
   }
 
-  search() {
-    this.getListProduct();
-  }
+
 }

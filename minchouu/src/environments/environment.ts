@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   API_URL_PRODUCT: 'http://localhost:8080/api/v1/products',
+  API_URL_PAYMENT: 'http://localhost:8080/api/v1/payments',
 };
 
 /*

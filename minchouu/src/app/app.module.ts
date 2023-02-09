@@ -11,6 +11,11 @@ import { ProductListComponent } from './copponent/product-list/product-list.comp
 import { LoginComponent } from './copponent/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { PaymentComponent } from './copponent/payment/payment/payment.component';
+import { ReceiptComponent } from './copponent/receipt/receipt.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
+import { ProductDetailComponent } from './copponent/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,10 @@ import {HttpClientModule} from '@angular/common/http';
     HomeComponent,
     CartComponent,
     ProductListComponent,
-    LoginComponent
+    LoginComponent,
+    PaymentComponent,
+    ReceiptComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +36,8 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

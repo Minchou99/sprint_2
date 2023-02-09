@@ -36,7 +36,7 @@ public class User {
 
     @JsonBackReference
     @OneToMany(mappedBy = "user")
-    private Set<Payment> product;
+    private Set<Payment> payments;
 
     public User() {
     }
@@ -129,11 +129,11 @@ public class User {
         this.account = account;
     }
 
-    public Set<Payment> getProduct() {
-        return product;
+    public Set<Payment> getPayments() {
+        return payments;
     }
 
-    public void setProduct(Set<Payment> product) {
-        this.product = product;
+    public void setPayments(Set<Payment> payments) {
+        this.payments = payments;
     }
 }

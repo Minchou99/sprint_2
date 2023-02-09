@@ -1,0 +1,61 @@
+<div class="product-detai-container">
+  <div class="product-detai-container__main">
+    <div class="product-detai-container__main-left">
+      <img src="{{product.image}}"
+           alt="Ảnh chó" class="main-left__top">
+      <div class="main-left__bottom">
+        <img class="main-left__bottom-img"
+             src="{{product.image}}"
+             alt="ảnh chó">
+        <img class="main-left__bottom-img"
+             src="{{product.image}}"
+             alt="ảnh chó">
+        <img
+          class="main-left__bottom-img"
+          src="{{product.image}}"
+          alt="ảnh chó">
+        <img class="main-left__bottom-img"
+             src="{{product.image}}"
+             alt="ảnh chó">
+        <img class="main-left__bottom-img"
+             src="{{product.image}}"
+             alt="ảnh chó">
+      </div>
+    </div>
+    <div class="product-detai-container__main-right">
+      <span class="main-right__top">{{product.name}}</span>
+      <div class="main-right__body">
+        <ul class="main-right__body-group">
+          <li class="body-group__item">
+            <div class="body-group__item-title">Price:</div>
+            <div class="body-group__item-content">{{product.price}}</div>
+          </li>
+          <li class="body-group__item">
+            <div class="body-group__item-title">Origin: </div>
+            <div class="body-group__item-content">{{product.origin}}</div>
+          </li>
+          <li class="body-group__item">
+            <div class="body-group__item-title">Color: </div>
+            <div class="body-group__item-content">{{product.color}}</div>
+          </li>
+          <li class="body-group__item">
+            <div class="body-group__item-title">Category: </div>
+            <div class="body-group__item-content">{{product.category}}</div>
+          </li>
+          <li class="body-group__item">
+            <div class="body-group__item-title">Size: </div>
+            <div class="body-group__item-content">{{product.size}}</div>
+          </li>
+          <li class="body-group__item">
+            <div class="body-group__item-title">Description: </div>
+            <div class="body-group__item-content">{{product.description}}</div>
+          </li>
+        </ul>
+      </div>
+      <div class="main-right__bottom">
+        <button (click)="addToCart(product.id)" >Add to cart</button>
+        <button routerLink="/productList">Back</button>
+      </div>
+    </div>
+  </div>
+</div>
